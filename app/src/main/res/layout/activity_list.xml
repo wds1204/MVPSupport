@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@id/rootView"
     android:layout_height="match_parent">
+    <android.support.v4.widget.SwipeRefreshLayout
 
-</android.support.constraint.ConstraintLayout>
+        android:id="@id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/error_view"/>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/layout_loading_view"/>
+
+</FrameLayout>

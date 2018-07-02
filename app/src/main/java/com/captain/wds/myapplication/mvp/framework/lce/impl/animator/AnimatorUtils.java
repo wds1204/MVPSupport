@@ -59,13 +59,18 @@ public class AnimatorUtils {
 			animatorSet.addListener(new AnimatorListenerAdapter() {
 
 				@Override public void onAnimationEnd(Animator animation) {
-					super.onAnimationEnd(animation);
-					contentView.setVisibility(View.VISIBLE);
+
+
+					loadingView.setVisibility(View.GONE);
+					loadingView.setAlpha(1f); // For future showLoading calls
+					contentView.setTranslationY(0);
+					loadingView.setTranslationY(0);
 				}
 
 				@Override public void onAnimationStart(Animator animation) {
-					super.onAnimationStart(animation);
-					loadingView.setVisibility(View.GONE);
+					contentView.setTranslationY(0);
+					loadingView.setTranslationY(0);
+					contentView.setVisibility(View.VISIBLE);
 				}
 			});
 			animatorSet.start();

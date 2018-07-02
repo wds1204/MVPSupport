@@ -56,6 +56,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>> 
 		setContentView(getLayoutId());
 		bind = ButterKnife.bind(this);
 		getMvpDelegate().onCreate(savedInstanceState);
+		initView();
 		initData();
 
 	}
@@ -106,6 +107,8 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>> 
 	 * @return must be LayoutRes
 	 */
 	public abstract int getLayoutId();
+
+	protected abstract void initView();
 
 	protected abstract void initData();
 }

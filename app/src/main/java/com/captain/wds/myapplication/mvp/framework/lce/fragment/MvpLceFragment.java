@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.captain.wds.myapplication.mvp.MvpPresenter;
 import com.captain.wds.myapplication.mvp.framework.MvpFragment;
+import com.captain.wds.myapplication.mvp.framework.lce.ILceAnimator;
 import com.captain.wds.myapplication.mvp.framework.lce.MvpLceView;
 import com.captain.wds.myapplication.mvp.framework.lce.impl.MvpLceViewImpl;
 
@@ -39,6 +40,10 @@ public  abstract class MvpLceFragment<D, V extends MvpLceView<D>, P extends MvpP
 		getLceViewImpl();
 		initLceView(view);
 
+	}
+
+	public void setLceAnimator(ILceAnimator lceAnimator){
+		getLceViewImpl().setAnimator(lceAnimator);
 	}
 
 	@Override public void loadData(boolean isPullToRefresh) {

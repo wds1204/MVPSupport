@@ -1,4 +1,13 @@
 package com.captain.wds.myapplication.tempDemo;
 
-public class ListModel {
+import com.captain.wds.myapplication.mvp.MvpModel;
+
+public class ListModel implements MvpModel {
+
+    public PostModel getListData() {
+
+        PostModel postModel = new PostModel();
+        return postModel;
+
+    }
 }

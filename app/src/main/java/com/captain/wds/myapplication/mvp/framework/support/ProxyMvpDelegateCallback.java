@@ -41,12 +41,17 @@ public class ProxyMvpDelegateCallback<V extends MvpView, P extends MvpPresenter<
 		return this.mvpCallback.getMvpView();
 	}
 
-	/* ===============添加两个重要的方法——绑定和解绑================= */
+	/* ===============添加重要的方法——view绑定和解绑，P的销毁================= */
 	public void attachView() {
 		getPresenter().attachView(getMvpView());
 	}
 
 	public void detachView() {
 		getPresenter().detachView();
+	}
+
+	public void destory() {
+		getPresenter().destory();
+
 	}
 }

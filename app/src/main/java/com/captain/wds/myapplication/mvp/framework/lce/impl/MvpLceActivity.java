@@ -6,6 +6,7 @@ import com.captain.wds.myapplication.R;
 import com.captain.wds.myapplication.mvp.MvpPresenter;
 import com.captain.wds.myapplication.mvp.MvpView;
 import com.captain.wds.myapplication.mvp.framework.MvpActivity;
+import com.captain.wds.myapplication.mvp.framework.lce.ILceAnimator;
 import com.captain.wds.myapplication.mvp.framework.lce.MvpLceView;
 
 /**
@@ -38,6 +39,10 @@ public abstract class MvpLceActivity<D, V extends MvpView, P extends MvpPresente
         //重新加载
         loadData(false);
     }
+
+	public void setLceAnimator(ILceAnimator lceAnimator){
+		getMvpLceView().setAnimator(lceAnimator);
+	}
 
 	@Override public void loadData(boolean isPullToRefresh) {
 

@@ -1,6 +1,5 @@
 package com.captain.wds.myapplication;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -19,9 +18,11 @@ public class MainActivity extends MvpActivity<LoginView,LoginPresenter> implemen
 
 	private EditText		et_password;
 
-	@Override protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+	@Override public int getLayoutId() {
+		return R.layout.activity_main;
+	}
+
+	@Override protected void initView() {
 		et_name = findViewById(R.id.et_name);
 		et_password = findViewById(R.id.et_password);
 		findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
@@ -30,6 +31,9 @@ public class MainActivity extends MvpActivity<LoginView,LoginPresenter> implemen
 				getPresenter().login(et_name.getText().toString(), et_password.getText().toString());
 			}
 		});
+	}
+
+	@Override protected void initData() {
 
 	}
 
