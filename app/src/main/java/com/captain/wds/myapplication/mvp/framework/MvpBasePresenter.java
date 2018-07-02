@@ -1,6 +1,7 @@
 package com.captain.wds.myapplication.mvp.framework;
 
 
+import com.captain.wds.myapplication.common.WdsCheckUtils;
 import com.captain.wds.myapplication.mvp.MvpPresenter;
 import com.captain.wds.myapplication.mvp.MvpView;
 
@@ -37,9 +38,8 @@ public class MvpBasePresenter<V extends MvpView> implements MvpPresenter<V> {
 		}
 
 		@Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-			if (view == null) {
-				throw new NullPointerException("空异常");
-			}
+
+			WdsCheckUtils.checkNotNull(view, "view 空异常");
 			return method.invoke(proxy, args);
 		}
 	}

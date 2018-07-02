@@ -5,8 +5,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.captain.wds.mvpdemo.mvp.framework.MvpActivity;
+import com.captain.wds.myapplication.mvp.framework.MvpActivity;
 
+/**
+ * 
+ * @author wds-captain
+ * @date 2018/7/1
+ */
 public class MainActivity extends MvpActivity<LoginView,LoginPresenter> implements LoginView {
 
 

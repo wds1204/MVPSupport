@@ -1,7 +1,7 @@
 package com.captain.wds.myapplication;
 
 
-import com.captain.wds.mvpdemo.mvp.framework.MvpBasePresenter;
+import com.captain.wds.myapplication.mvp.framework.MvpBasePresenter;
 
 //具体中介
 public class LoginPresenter extends MvpBasePresenter<LoginView> {

@@ -1,7 +1,7 @@
 package com.captain.wds.myapplication;
 
 
-import com.captain.wds.mvpdemo.mvp.MvpModel;
+import com.captain.wds.myapplication.mvp.MvpModel;
 
 //M层->具体同事A
 public class LoginModel implements MvpModel {
