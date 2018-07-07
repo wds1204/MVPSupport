@@ -27,6 +27,10 @@ public class MvpBasePresenter<V extends MvpView> implements MvpPresenter<V> {
 		this.view = null;
 	}
 
+	@Override public void destory() {
+
+	}
+
 	class ProxyInvocationHandler<V extends MvpView> implements InvocationHandler {
 
 		private V view;

@@ -28,7 +28,7 @@ public abstract class MvpActivity<V extends MvpView, P extends MvpPresenter<V>> 
 
 	private ActivityMvpDelegate<V, P> getMvpDelegate() {
 		if (mvpDelegate == null) {
-			mvpDelegate = new ActivityMvpDelegateImpl<V, P>(this);
+			mvpDelegate = new ActivityMvpDelegateImpl<V, P>(this, this, true);
 		}
 		return mvpDelegate;
 	}

@@ -22,7 +22,7 @@ public class ListPresenter extends MvpBasePresenter<MvpLceView<PostModel>> {
         }
 //        SystemClock.sleep(10000);
 
-//        getView().showContent();
+        getView().showContent();
 
 
     }

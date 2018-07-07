@@ -1,12 +1,12 @@
 package com.captain.wds.myapplication.tempDemo;
 
-import android.annotation.SuppressLint;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 
 import com.captain.wds.myapplication.LoadingAnimator;
 import com.captain.wds.myapplication.R;
@@ -17,7 +17,7 @@ import butterknife.BindView;
 
 public class ListActivity extends MvpLceActivity<PostModel, MvpLceView<PostModel>, ListPresenter> implements SwipeRefreshLayout.OnRefreshListener {
 
-	@BindView(R.id.listview) ListView				listview;
+	@BindView(R.id.recyclerview) RecyclerView		recyclerview;
 
 	@BindView(R.id.contentView) SwipeRefreshLayout	swipeRefreshLayout;
 
@@ -26,39 +26,29 @@ public class ListActivity extends MvpLceActivity<PostModel, MvpLceView<PostModel
 	}
 
 	@Override protected void initView() {
-		listview.setAdapter(new BaseAdapter() {
+		recyclerview.setLayoutManager(new LinearLayoutManager(this));
+		recyclerview.setAdapter(new RecyclerView.Adapter() {
 
-			@Override public int getCount() {
+			@NonNull @Override public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+				View view = LayoutInflater.from(ListActivity.this).inflate(R.layout.list_item, parent, false);
+
+				return new RecyViewHolder(view);
+			}
+
+			@Override public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {}
+
+			@Override public int getItemCount() {
 				return 10;
 			}
 
-			@Override public Object getItem(int position) {
-				return null;
-			}
+			class RecyViewHolder extends RecyclerView.ViewHolder {
 
-			@Override public long getItemId(int position) {
-				return 0;
-			}
-
-			@SuppressLint("ViewHolder") @Override public View getView(int position, View convertView, ViewGroup parent) {
-				ViewHolder holder = null;
-
-				if (holder == null) {
-					convertView = LayoutInflater.from(ListActivity.this).inflate(R.layout.list_item, parent, false);
-
-					holder = new ViewHolder();
-					convertView.setTag(holder);
-
-				} else {
-					holder = (ViewHolder) convertView.getTag();
+				public RecyViewHolder(View itemView) {
+					super(itemView);
 				}
-				return convertView;
-			}
-
-			class ViewHolder {
-
 			}
 		});
+
 		setLceAnimator(new LoadingAnimator());
 
 		swipeRefreshLayout.setOnRefreshListener(this);
@@ -67,7 +57,6 @@ public class ListActivity extends MvpLceActivity<PostModel, MvpLceView<PostModel
 
 	@Override protected void initData() {
 		loadData(false);
-
 
 	}
 
