@@ -1,6 +1,7 @@
 package com.captain.wds.myapplication.mvp.framework.support;
 
 
+import com.captain.wds.myapplication.exception.WdsNullPointerException;
 import com.captain.wds.myapplication.mvp.MvpPresenter;
 import com.captain.wds.myapplication.mvp.MvpView;
 
@@ -23,7 +24,7 @@ public class ProxyMvpDelegateCallback<V extends MvpView, P extends MvpPresenter<
 			presenter = this.mvpCallback.createPresenter();
 		}
 		if (presenter == null) {
-			throw new NullPointerException("P层不能为空");
+			throw new WdsNullPointerException("P层不能为空");
 		}
 		this.setPresenter(presenter);
 		return presenter;

@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MVPSupport.iml" filepath="$PROJECT_DIR$/MVPSupport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/MVPSupport-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/MVPSupport-app.iml" group="MVPSupport/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/未来酒店项目-MVPSupport.iml" filepath="$PROJECT_DIR$/.idea/modules/未来酒店项目-MVPSupport.iml" group="MVPSupport" />
     </modules>
   </component>
 </project>
