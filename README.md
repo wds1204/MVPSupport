@@ -11,3 +11,4 @@ MVP框架
 3.Lce的设计（Loading、content、error）
 
 4.稍后...*[]:
+[MVP框架之双向代理设计](https://www.jianshu.com/p/94a8e65433a4)
