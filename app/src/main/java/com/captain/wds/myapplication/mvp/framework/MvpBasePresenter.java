@@ -36,9 +36,7 @@ public class MvpBasePresenter<V extends MvpView> implements MvpPresenter<V> {
 		private V view;
 
 		public ProxyInvocationHandler(V view) {
-
 			this.view = view;
-
 		}
 
 		@Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

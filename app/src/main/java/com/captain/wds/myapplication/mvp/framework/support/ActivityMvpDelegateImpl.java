@@ -2,6 +2,7 @@ package com.captain.wds.myapplication.mvp.framework.support;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.captain.wds.myapplication.common.WdsCheckUtils;
 import com.captain.wds.myapplication.mvp.MvpPresenter;
@@ -34,17 +35,21 @@ public class ActivityMvpDelegateImpl<V extends MvpView, P extends MvpPresenter<V
 	}
 
 	@Override public void onCreate(Bundle bundle) {
-
+		Log.e("TAG", "ActivityMvpDelegateImpl===onCreate");
 		P presenter = null;
 		// P层的缓存
 		if (bundle != null && keepPresenterInstance) {
 			viewId = bundle.getString(KEY_VIEW_ID);
+			Log.e("TAG", "viewId========"+viewId);
 			if (viewId == null) {
 				presenter = createViewIdAndCreatePresenter();
+			}else {
+				presenter = PresenterManager.getPresenter(activity, viewId);
 			}
 		} else {
 			presenter = createViewIdAndCreatePresenter();
 		}
+		Log.e("TAG", "ActivityMvpDelegateImpl===onCreate"+presenter);
 		// 绑定P
 		mvpCallback.setPresenter(presenter);
 		// 绑定V
@@ -57,7 +62,8 @@ public class ActivityMvpDelegateImpl<V extends MvpView, P extends MvpPresenter<V
 		WdsCheckUtils.checkNotNull(presenter, "presenter不能为空");
 		if (keepPresenterInstance) {
 			viewId = UUID.randomUUID().toString();
-			PresenterManager.putPresenter(activity, viewId, presenter);
+			PresenterManager.
+					putPresenter(activity, viewId, presenter);
 		}
 		return presenter;
 	}

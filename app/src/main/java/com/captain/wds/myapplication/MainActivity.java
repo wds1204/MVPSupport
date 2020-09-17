@@ -1,5 +1,6 @@
 package com.captain.wds.myapplication;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +18,18 @@ public class MainActivity extends MvpActivity<LoginView,LoginPresenter> implemen
 	private EditText		et_name;
 
 	private EditText		et_password;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.e("TAG", "onCreate======");
+	}
+
+	@Override
+	protected void onRestart() {
+		super.onRestart();
+		Log.e("TAG", "onRestart======");
+	}
 
 	@Override public int getLayoutId() {
 		return R.layout.activity_main;
@@ -45,4 +58,9 @@ public class MainActivity extends MvpActivity<LoginView,LoginPresenter> implemen
 		Log.e("TAG", "result :" + result);
 	}
 
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		Log.e("TAG", "onSaveInstanceState======");
+	}
 }

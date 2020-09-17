@@ -40,7 +40,6 @@ public class PresenterManager {
             }
         }
 
-        //学习Android基础学习过这个缓存
         @Override
         public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
             String activityId = activityIdMap.get(activity);
